@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script src="jquery.knob.min.js"></script><script src="cordova.js"></script>
+</head>
+
+<body><script src="firebase.js"></script>
+
+	<div class="dial2">
+<center>
+    <input data-linecap="round" type="text" data-width="100%" value="75" data-fgColor="#66CC66" data-angleOffset="-125" data-angleArc="250" data-rotation="clockwise" class="dial" data-skin="tron">
+</center></div>
+  <script>  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDMrgFx2esdzS-UxzWTBsgiZ9oYlekFscQ",
+    authDomain: "testaskp.firebaseapp.com",
+    databaseURL: "https://testaskp.firebaseio.com",
+    projectId: "testaskp",
+    storageBucket: "testaskp.appspot.com",
+    messagingSenderId: "40091265292"
+  };
+  firebase.initializeApp(config);
+
+
+
+$(function() {
+            $(".dial").knob({
+        'change' : function (v) {firebase.database().ref("volume").set(v); }
+    });
+        });</script>
+
+</body>
+
+</html>
